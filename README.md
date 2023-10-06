@@ -1,2 +1,2 @@
 # Specifications
-Spec containing protocols for Yield Sync initiatives.
+Spec containing protocol definitions for Yield Sync initiatives.
