@@ -1,2 +1,2 @@
-# specifications
-Spec containing protocols for yield-sync initiatives.
+# Specifications
+Spec containing protocols for Yield Sync initiatives.
