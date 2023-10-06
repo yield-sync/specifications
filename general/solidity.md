@@ -26,6 +26,8 @@
 1. Group by interface implementation
 2. Visibility (`public` | `private` | `internal` | `external`)
 3. State interaction (`pure` | `view`)
-4. Restriction (`Access Control` etc. DEFAULT_ADMIN_ROLE first)
+4. Modifiers such as restrictions (ex: `Access Control`)
+	1. Modifer Alphabetical
+	2. Functional Alphabetical
 5. Complexity (Calls to inherited functions, external functions, change state)
 6. Alphabetical
