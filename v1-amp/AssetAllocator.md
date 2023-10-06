@@ -6,9 +6,14 @@ This objective of this smart contract is to establish a hub for directing underl
 
 ## Requirements
 
-- Must have a manager (AOE or Smart Contract)
-- Must be subject to some control by the yield-sync organization
+1. Must have a manager (AOE or Smart Contract)
+2. Must be subject to some control by the yield-sync organization
+3. Tokens must be able to be deposited to this contract
+	1. Must have an ERC20 token position tracking system
+4. Tokens must be able to be withdrawn from this contract
+	2. ERC20 tokens associated must be able to be burned via this contract
+5. A manager must be responsible to run the allocate function
 
 ## Optionals
 
-1. It may be ownable
+1. Strategy
