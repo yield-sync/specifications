@@ -1,6 +1,6 @@
 # Asset Allocator
 
-This is derived from the the AssetAllocatorFatory.
+This is derived from the `Asset Allocator Deployer`.
 
 This objective of this smart contract is to establish a hub for directing underlying assets.
 
