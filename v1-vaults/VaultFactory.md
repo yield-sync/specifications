@@ -16,3 +16,18 @@ This is defintion for the V1 Vaults deployer.
 	2. Can be updated
 	3. Must be able to transfer collected fees to specified address
 5. Must allow a AOE or Smart Contract to deploy a v1 vault
+
+## Functions
+
+`f(x) -> return`
+```
+YieldSyncGovernance() -> (address);
+YieldSyncV1VaultRegistry() -> (address);
+fee() -> (uint256);
+yieldSyncV1VaultIdTracker() -> (uint256);
+yieldSyncV1Vault_yieldSyncV1VaultId(address yieldSyncV1Vault) -> (uint256);
+yieldSyncV1VaultId_yieldSyncV1Vault(uint256 yieldSyncV1VaultId) -> (address);
+deployYieldSyncV1Vault(address signatureProtocol, address transferRequestProtocol, address[] admins, address[] members) -> (address deployedYieldSyncV1Vault);
+feeUpdate(uint256 _fee);
+etherTransfer(address to);
+```
