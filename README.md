@@ -1,2 +1,9 @@
 # Specifications
-Spec containing protocol definitions for Yield Sync initiatives.
+
+## Protocol Definitions for Yield Sync Initiatives
+
+There are directories for multiple initiative (They may or maynot have assocaited GitHub repos).
+
+1. `general` defines general development processes
+2. `v1-amp` spec. for v1-amp
+3. `v1-vault` spec.for v1-vaults
