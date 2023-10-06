@@ -1,4 +1,4 @@
-# Yield Sync V1 Vault Factory
+# Yield Sync V1 Vault Deployer
 
 This is defintion for the V1 Vaults deployer.
 
