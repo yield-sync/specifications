@@ -18,7 +18,7 @@ This is defintion for the V1 Vaults deployer.
 		3. Every vault must have a unique ID
 5. Must allow a AOE or Smart Contract to deploy a v1 vault
 
-## Functions
+## Implementation
 
 ### Solidity Interface
 
