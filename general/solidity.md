@@ -27,7 +27,9 @@
 2. Visibility (`public` | `private` | `internal` | `external`)
 3. State interaction (`pure` | `view`)
 4. Modifiers such as restrictions (ex: `Access Control`)
-	1. Modifer Alphabetical
-	2. Functional Alphabetical
-5. Complexity (Calls to inherited functions, external functions, change state)
-6. Alphabetical
+	1. No modifier
+	2. Modifer Alphabetical
+5. Function Name Alphabetical
+6. Parameters
+	1. count
+	2. parameter type name
