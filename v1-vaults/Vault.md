@@ -4,13 +4,14 @@ This is defintion for the V1 Vaults.
 
 ## Requirements
 
-1. Must utilize a [transfer request protocol](./TransferRequestProtocol.md)
+1. Must utilize a [TransferRequestProtocol](./TransferRequestProtocol.md) implementation.
+	1. Store address into a variable
 
 ## Deployment Process
 
 ### Prereq.
 
-1. Deployer must have the properties for his address set on the transfer request protocol, so that the deployer can copy it to 
+1. Deployer must have the properties for his address set on the transfer request protocol.
 
 ## Implementation
 
