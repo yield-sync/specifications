@@ -6,7 +6,8 @@ This objective of this smart contract is to establish a hub for directing underl
 
 ## Requirements
 
-1. Must be subject to some control by the yield-synce organization
+- Must have a manager (AOE or Smart Contract)
+- Must be subject to some control by the yield-sync organization
 
 ## Optionals
 
