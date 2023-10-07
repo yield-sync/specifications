@@ -7,21 +7,30 @@ This is defintion for the V1 Vaults.
 1. Implements the IERC1271 standard
 
 2. Must utilize the [YieldSyncV1VaultRegistry](./V1VaultRegistry.md).
+
 	1. Store address into a variable
+
 	2. Utilize the access control system of the registry
 	
 3. Must utilize an implementation of [TransferRequestProtocol](./TransferRequestProtocol.md).
+
 	1. Store address into a variable
+	
 	2. Can be updated by `admins`
 
 4. User can optionaly use a [SignatureProtocol](./SignatureProtocol.md).
+
 	1. SignatureProtocol implements the [ERC-1271](https://eips.ethereum.org/EIPS/eip-1271) standard for signing a message
+
 	2. The option to have a SignatureProtocol is optional for the deployer and admin
 
 5. Using the authorization system of YieldSyncV1VaultRegistry, admins can do the following:
 	1. Add another admin
+
 	2. Remove an admin (Including self)
+	
 	3. Add a member
+	
 	4. Remove a member
 
 6. Member should be able to process a transfer request by providing the ID of a <i>valid</i> TransferRequest
