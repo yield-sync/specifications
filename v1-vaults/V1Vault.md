@@ -5,17 +5,22 @@ This is defintion for the V1 Vaults.
 ## Requirements
 
 1. Implements the IERC1271 standard
+
 2. Implements [OpenZeppelin](https://www.openzeppelin.com/)'s ReentrancyGuard
-3. Must utilize a [TransferRequestProtocol](./TransferRequestProtocol.md) implementation.
+
+3. Must utilize a [YieldSyncV1VaultRegistry](./V1VaultRegistry.md) implementation.
 	1. Store address into a variable
-4. User can assign a signatureProtocol for signing a message
-	1. In Solidity this is the ERC-1271 standard 
+	
+4. Must utilize a [TransferRequestProtocol](./TransferRequestProtocol.md) implementation.
+	1. Store address into a variable
+	2. Can be updated by `admins`
+
+5. User can assign a signatureProtocol for signing a message
+	1. In Solidity this is the [ERC-1271](https://eips.ethereum.org/EIPS/eip-1271) standard 
+
+6. 
 
 ## Deployment Process
-
-### Prereq.
-
-1. Deployer must have the properties for his address set on the transfer request protocol.
 
 ## Implementation
 
