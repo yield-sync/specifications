@@ -8,17 +8,27 @@ This is defintion for the V1 Vaults.
 
 2. Implements [OpenZeppelin](https://www.openzeppelin.com/)'s ReentrancyGuard
 
-3. Must utilize a [YieldSyncV1VaultRegistry](./V1VaultRegistry.md) implementation.
+3. Must utilize the [YieldSyncV1VaultRegistry](./V1VaultRegistry.md).
 	1. Store address into a variable
 	
-4. Must utilize a [TransferRequestProtocol](./TransferRequestProtocol.md) implementation.
+4. Must utilize an implmentation of [TransferRequestProtocol](./TransferRequestProtocol.md).
 	1. Store address into a variable
 	2. Can be updated by `admins`
 
-5. User can assign a signatureProtocol for signing a message
-	1. In Solidity this is the [ERC-1271](https://eips.ethereum.org/EIPS/eip-1271) standard 
+5. User can optionaly use a [SignatureProtocol](./SignatureProtocol.md).
+	1. SignatureProtocol implements the [ERC-1271](https://eips.ethereum.org/EIPS/eip-1271) standard for signing a message
+	2. The option to have a SignatureProtocol is optional for the deployer and admin
 
-6. 
+6. Using the authorization system of YieldSyncV1VaultRegistry, admins can do the following:
+	1. Add another admin
+	1. Remove an admin (Including self)
+	1. Add a member
+	1. Remove a member
+
+8. Member should be able to process a transfer request by providing the ID of a <i>valid</i> TransferRequest
+
+7. Member should be able to renounce memebership in a vault
+
 
 ## Deployment Process
 
