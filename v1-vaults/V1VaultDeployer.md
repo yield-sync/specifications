@@ -7,8 +7,10 @@ This is defintion for the V1 Vaults deployer.
 1. Must have authorization for Yield Sync governance
 
 1. Must store the address of the Yield Sync governance contract
+	- Implement getter if required
 
-2. Must store the address of the Yield Sync Registry contract
+2. Must store the address of the Yield Sync `V1VaultRegistry` contract
+	- Implement getter if required
 
 3. Must store the fee
 	1. Can be 0
@@ -24,7 +26,7 @@ This is defintion for the V1 Vaults deployer.
 		1. A mapping of vault address -> ID
 
 		2. A mapping of ID -> vault address
-		
+
 		3. Every vault must have a unique ID
 
 5. Must allow a AOE or Smart Contract to deploy a v1 vault

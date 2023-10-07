@@ -9,12 +9,14 @@ This is defintion for the V1 Vaults.
 2. Must utilize the [YieldSyncV1VaultRegistry](./V1VaultRegistry.md).
 
 	1. Store address into a variable
+		- Implement getter if required
 
 	2. Utilize the access control system of the registry
 	
 3. Must utilize an implementation of [TransferRequestProtocol](./TransferRequestProtocol.md).
 
 	1. Store address into a variable
+		- Implement getter if required
 	
 	2. Can be updated by `admins`
 
@@ -30,7 +32,7 @@ This is defintion for the V1 Vaults.
 	2. Remove an admin (Including self)
 	
 	3. Add a member
-	
+
 	4. Remove a member
 
 6. Member should be able to process a transfer request by providing the ID of a <i>valid</i> TransferRequest
