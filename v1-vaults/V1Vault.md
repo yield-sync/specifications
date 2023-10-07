@@ -39,6 +39,16 @@ This is defintion for the V1 Vaults.
 
 7. Member should be able to renounce memebership in a vault
 
+8. Must be able to recieve funds by simple transaction address
+
+9. Caling `yieldSyncV1Vault_transferRequestId_transferRequestProcess` function must be able transfer the following types of assets:
+	
+	1. Ether
+	
+	2. ERC-20 Tokens
+	
+	3. ERC-721 Tokens
+
 ## Implementation
 
 ### Solidity Interface
