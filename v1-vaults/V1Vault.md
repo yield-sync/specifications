@@ -10,7 +10,7 @@ This is defintion for the V1 Vaults.
 	1. Store address into a variable
 	2. Utilize the access control system of the registry
 	
-3. Must utilize an implmentation of [TransferRequestProtocol](./TransferRequestProtocol.md).
+3. Must utilize an implementation of [TransferRequestProtocol](./TransferRequestProtocol.md).
 	1. Store address into a variable
 	2. Can be updated by `admins`
 
