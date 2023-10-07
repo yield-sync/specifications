@@ -8,6 +8,7 @@ This is defintion for the V1 Vaults.
 
 2. Must utilize the [YieldSyncV1VaultRegistry](./V1VaultRegistry.md).
 	1. Store address into a variable
+	2. Utilize the access control system of the registry
 	
 3. Must utilize an implmentation of [TransferRequestProtocol](./TransferRequestProtocol.md).
 	1. Store address into a variable
