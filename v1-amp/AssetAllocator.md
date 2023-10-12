@@ -17,3 +17,7 @@ The objective of this smart contract is to establish a hub for directing underly
 ## Optionals
 
 1. Strategy
+
+## Note
+
+- Consider creating automated mechanism for determing distribution allocations
