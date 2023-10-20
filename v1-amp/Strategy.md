@@ -11,7 +11,3 @@
 4. Must return the value of ERC-20 position token
 
 ## Notes
-
-### Idea for Strategy
-
-- Consider implementing an insurance mechanism
