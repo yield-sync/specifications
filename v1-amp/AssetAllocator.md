@@ -6,36 +6,50 @@ The objective of this smart contract is to establish a hub for directing underly
 
 ## Requirements
 
-1. must be able to recieve and send ether, and ERC-X tokens
+### 1. Receiving Tokens
 
-2. Must have a manager (AOE or Smart Contract)
+- must be able to recieve and send ether, and ERC-X tokens
 
-3. Must be subject to some control by the yield-sync organization
+### 2. Managment
 
-4. Tokens must be able to be deposited into this contract
+-  Must have a manager (AOE or Smart Contract)
+- A manager must be responsible for running the allocation function
 
-	1. Upon depositing a token an ERC 20 is issued to represent the position
+### 3. Yield Sync DAO Control
 
-5. Tokens must be able to be withdrawn from this contract by cashing out
+- The Yield Sync DAO should have control over speicified processes
 
-	1. ERC20 token that is submitted must be burnt
+### 4. Deposits
 
-6. A manager must be responsible for running the allocation function
+- Tokens must be able to be deposited into this contract
 
-7. Must be able to calculate the `percentAllocation` of a strategy using the following formula
-	```
-	PA = percent-allocation
+- Upon depositing a token an ERC 20 is issued to represent the position
 
-	a(x) = amount of x
+### 5. Withdrawals
 
-	P(x) = price of x
+- Tokens must be able to be withdrawn from this contract by cashing out
 
-	T = set of all tokens
+- ERC20 token that is submitted must be burnt
 
-	t = element of T or t ∈ T
+### 6. Position(s)
 
-	PA = (a(t1) * P(t)) / (∑ t ∈ T a(t) * P(t))
-	```
+- Must be able to calculate the `percentAllocation` of a strategy using the following formula
+```
+PA = percent-allocation
+
+a(x) = amount of x
+
+P(x) = price of x
+
+T = set of all tokens
+
+t = element of T or t ∈ T
+
+PA = (a(t1) * P(t)) / (∑ t ∈ T a(t) * P(t))
+```
+
+- The strategy must return the value of the `strategy position ERC-20`
+
 ## Optionals
 
 1. Strategy
