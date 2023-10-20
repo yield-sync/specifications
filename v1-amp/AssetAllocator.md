@@ -10,7 +10,7 @@ The objective of this smart contract is to establish a hub for directing underly
 
 - must be able to recieve and send ether, and ERC-X tokens
 
-### 2. Managment
+### 2. Management
 
 -  Must have a manager (AOE or Smart Contract)
 - A manager must be responsible for running the allocation function
@@ -27,9 +27,9 @@ The objective of this smart contract is to establish a hub for directing underly
 
 ### 5. Withdrawals
 
-- Tokens must be able to be withdrawn from this contract by cashing out
+- Tokens must be able to be withdrawn from this contract by turning in `Asset Allocator Position ERC-20`
 
-- ERC20 token that is submitted must be burnt
+- `Asset Allocator Position ERC-20` tokens that are submitted for cash out must be burnt
 
 ### 6. Position(s)
 
