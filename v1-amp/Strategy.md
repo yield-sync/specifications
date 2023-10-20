@@ -5,6 +5,8 @@
 
 ## Notes
 
+PA = (a(t1) * P(t)) / (∑t∈T a(t) * P(t))
+
 ### Idea for Strategy
 
 - Consider implementing an insurance mechanism
