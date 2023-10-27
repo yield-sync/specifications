@@ -34,21 +34,35 @@ The objective of this smart contract is to establish a hub for directing underly
 ### 6. Position(s)
 
 - Must be able to calculate the `percentAllocation` of a strategy using the following formula
+
 ```
-PA = percent-allocation
+T = set of all variants of strategy tokens
 
-a(x) = amount of x
+t = element of T = t ∈ T = token(s) of a strategy
 
-P(x) = price of x
+a(t) = amount of tokens of a given strategy
 
-T = set of all tokens
+t[i] = Single token of t
 
-t = element of T or t ∈ T
+P(t[i]) Price of a single token of t (returned from the strategy)
 
-PA = (a(t1) * P(t)) / (∑ t ∈ T a(t) * P(t))
+V(t) = a(t) * P(t[i]) = value of t
+
+PA(t) = (V(t)) / (∑ t ∈ T V(t)) = percent-allocation of t of T
 ```
 
 - The strategy must return the value of the `strategy position ERC-20`
+
+- Must be able to calculate the greatest difference in allocation-to-target. This is achieved by the following formula:
+
+```
+S = T
+
+D = { (a(s) * P(s)) / (∑ t ∈ T a(t) * P(t)) - (n(s) / 100) | s ∈ S }
+
+Lowest allocation = min(D)
+
+```
 
 ## Optionals
 
