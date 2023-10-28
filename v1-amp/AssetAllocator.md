@@ -48,7 +48,9 @@ P(t[i]) Price of a single token of t (returned from the strategy)
 
 V(t) = a(t) * P(t[i]) = value of t
 
-PA(t) = (V(t)) / (∑ t ∈ T V(t)) = percent-allocation of t of T
+h = (∑ t ∈ T V(t)) = Total holdings
+
+PA(t) = (V(t)) / h = percent-allocation of h
 ```
 
 - The strategy must return the value of the `strategy position ERC-20`
