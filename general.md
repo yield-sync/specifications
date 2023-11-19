@@ -21,6 +21,8 @@
 
 ### Variables
 
+#### Ordering
+
 1. Type (`address` | `bytes` | `uint256` | custom)
 2. Visibility (`public` | `private` | `internal` | `external`)
 3. Mutability (`constant` | `immutable` | NA)
@@ -28,6 +30,8 @@
 5. Alphabetical
 
 ### Mappings
+
+#### Ordering
 
 1. Visibility (`public` | `private` | `internal` | `external`)
 	1. mapping with only primative types come first
@@ -41,6 +45,8 @@
 1. Getter function is to be defined only if the mapping consists of non-primative types otherwise visibility is `public` 
 
 ### Functions
+
+#### Ordering
 
 1. Group by interface implementation
 2. Visibility (`public` | `private` | `internal` | `external`)
