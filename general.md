@@ -36,7 +36,7 @@
 4. Struct
 5. Alphabetical
 
-#### Getters for Mapping
+#### Mapping Getters
 
 1. Getter function is to be defined only if the mapping consists of non-primative types otherwise visibility is `public` 
 
