@@ -6,10 +6,17 @@
 
 1. Type (`address`, `bytes`, etc.)
 2. Visibility (`public` | `private` | `internal` | `external`)
-3. Array
-4. Alphabetical
+3. Mutability (`constant` | `immutable` | NA)
+4. Array
+5. Alphabetical
 
 ### Mappings
+
+1. Visibility (`public` | `private` | `internal` | `external`)
+2. Type (`address`, `bytes`, etc.)
+3. Mutability (`constant` | `immutable` | NA)
+4. Struct
+5. Alphabetical
 
 #### Line Ordering
 
