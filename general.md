@@ -23,9 +23,9 @@
 
 #### Ordering
 
-1. Type (`address` | `bytes` | `uint256` | custom)
-2. Visibility (`public` | `private` | `internal` | `external`)
-3. Mutability (`constant` | `immutable` | NA)
+1. Type -> `address` | `bytes` | `uint256` | `custom`
+2. Visibility -> `public` | `private` | `internal` | `external`
+3. Mutability -> `constant` | `immutable` | N.A.
 4. Array
 5. Alphabetical
 
@@ -33,10 +33,10 @@
 
 #### Ordering
 
-1. Type (`address`, `bytes`, `Struct`)
-2. Visibility (`public` | `private` | `internal` | `external`)
+1. Type -> `address` | `bytes` | `Struct`
+2. Visibility -> `public` | `private` | `internal` | `external`
 	1. mapping with only primative types come first
-3. Mutability (`constant` | `immutable` | NA)
+3. Mutability -> `constant` | `immutable` | N.A.
 5. Alphabetical
 
 #### Mapping Getters
@@ -48,8 +48,8 @@
 #### Ordering
 
 1. Group by interface implementation
-2. Visibility (`public` | `private` | `internal` | `external`)
-3. State interaction (`pure` | `view`)
+2. Visibility -> `public` | `private` | `internal` | `external`
+3. State interaction -> `pure` | `view`
 4. Modifiers such as restrictions (ex: `Access Control`)
 	1. No modifier
 	2. Modifer Alphabetical
