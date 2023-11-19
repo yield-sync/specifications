@@ -15,9 +15,9 @@
 #### General
 
 1. Getter function should be the name of the internal variable or mapping without the prepended `_`
-2. The return type on a mapping getters should not have a follow up variable name
-	1. Good -> `returns (uint256)`
-	2. Bad -> `returns (uint256 value)`
+2. The return type on a mapping getters should have a follow up variable name
+	1. Good -> `returns (uint256 value_)`
+	2. Bad -> `returns (uint256)`
 
 ### Variables
 
