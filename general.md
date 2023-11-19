@@ -33,11 +33,10 @@
 
 #### Ordering
 
-1. Visibility (`public` | `private` | `internal` | `external`)
+1. Type (`address`, `bytes`, `Struct`)
+2. Visibility (`public` | `private` | `internal` | `external`)
 	1. mapping with only primative types come first
-2. Type (`address`, `bytes`, etc.)
 3. Mutability (`constant` | `immutable` | NA)
-4. Struct
 5. Alphabetical
 
 #### Mapping Getters
