@@ -7,6 +7,7 @@
 1. Type (`address`, `bytes`, etc.)
 2. Visibility (`public` | `private` | `internal` | `external`)
 3. Array
+4. Alphabetical
 
 ### Mappings
 
@@ -15,6 +16,7 @@
 1. Visibility (`public` | `private` | `internal` | `external`)
 2. Type (`address`, `bytes`, etc.)
 3. Struct
+4. Alphabetical
 
 #### Getters
 
