@@ -5,8 +5,9 @@
 ### Naming Conventions
 
 1. All internal variables must begin with `_`
-2. All `constant` and `immutable` variables must be capitalized snake-case
-3. All return variable names must appended with a `_`
+2. All parameters of functions must begin with `_`
+3. All `constant` and `immutable` variables must be capitalized snake-case
+4. All return variable names must appended with a `_`
 	1. Good -> `returns (uint256 value_)`
 	2. Bad -> `returns (uint256 value)`
 
