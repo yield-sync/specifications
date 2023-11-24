@@ -15,8 +15,8 @@
 
 #### General
 
-1. Getter function should be the name of the internal variable or mapping without the prepended `_`
-2. The return type on a mapping getters should have a follow up variable name
+1. The Getter function should be the name of the internal variable or mapping without the prepended `_`
+2. The return type on a mapping getter should have a follow-up variable name
 	1. Good -> `returns (uint256 value_)`
 	2. Bad -> `returns (uint256)`
 
@@ -25,9 +25,9 @@
 #### Ordering
 
 1. Type -> `address` | `bytes` | `uint256` | `custom`
-2. Visibility -> `public` | `private` | `internal` | `external`
-3. Mutability -> `constant` | `immutable` | N.A.
-4. Array
+	1. Array at end
+3. Visibility -> `public` | `private` | `internal` | `external`
+4. Mutability -> `constant` | `immutable` | N.A.
 5. Alphabetical
 
 ### Mappings
@@ -36,13 +36,13 @@
 
 1. Type -> `address` | `bytes` | `Struct`
 2. Visibility -> `public` | `private` | `internal` | `external`
-	1. mapping with only primative types come first
+	1. mapping with only primitive types comes first
 3. Mutability -> `constant` | `immutable` | N.A.
 5. Alphabetical
 
 #### Mapping Getters
 
-1. Getter function is to be defined only if the mapping consists of non-primative types otherwise visibility is `public` 
+1. The Getter function is to be defined only if the mapping consists of non-primitive types otherwise visibility is `public` 
 
 ### Functions
 
