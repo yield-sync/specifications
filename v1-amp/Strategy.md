@@ -1,5 +1,9 @@
 # Yield Sync Strategy
 
+This is derived from the `StrategyDeployer.sol`
+
+## Tasks
+
 1. Should utilize an ERC-20 token <i>t</i> to keep track of position
 
 2. Should return the amount of utilized tokens to be returned for each <i>t</i>
