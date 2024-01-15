@@ -11,16 +11,7 @@
 	1. Good -> `returns (uint256 value_)`
 	2. Bad -> `returns (uint256 value)`
 
-### Getters
-
-#### General
-
-1. The Getter function should be the name of the internal variable or mapping without the prepended `_`
-2. The return type on a mapping getter should have a follow-up variable name
-	1. Good -> `returns (uint256 value_)`
-	2. Bad -> `returns (uint256)`
-
-### Primative Types
+### Primative Types (Variables)
 
 #### Ordering
 
@@ -29,6 +20,15 @@
 3. Type -> (Alphabetical) `address` | `bytes` | `uint256`
 4. Non-Array than Array
 5. Alphabetical
+
+### Getters
+
+#### General
+
+1. The Getter function should be the name of the internal variable or mapping without the prepended `_`
+2. The return type on a mapping getter should have a follow-up variable name
+	1. Good -> `returns (uint256 value_)`
+	2. Bad -> `returns (uint256)`
 
 ### Mappings
 
