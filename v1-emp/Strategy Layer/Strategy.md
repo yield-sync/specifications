@@ -8,11 +8,13 @@ The objective of this smart contract is to control the strategy.
 
 ## Features
 
-1. Utilize an ERC-20 token <i>t</i> to keep track of position which is only mintable by an EMP
+1. Must store the address of EMP deployer
 
-2. Should return the amount of utilized tokens to be returned for each <i>t</i>
+2. Utilize an ERC-20 token <i>t</i> to keep track of position which is only mintable by an EMP
 
-3. Must return the value of total <i>t</i> of a wallet denominated in ETH
+3. Should utilize some ETH value service for each utilized token.
+
+4. Should utilize a Strategy Interactor.
 
 ```
 t = ERC-20 strategy position t
