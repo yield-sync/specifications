@@ -1,0 +1,5 @@
+Deploying the EMPDeployer should not be allowed unless a registry is specified in the constructor
+
+Deployinh the EMPStrategyDeployer should bot be allowed unless a registry is specefied in the constructor
+
+This should be done because the EMP should have a referrence so refer when evaluating which strategy is valid or not.
