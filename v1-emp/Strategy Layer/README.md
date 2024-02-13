@@ -24,7 +24,7 @@ This part of the deployment proccess is the most abstract aspect of the protocol
 
 This contract should be responsible of interacting with the DeFi protocol itself as well as holding an token that is associated. That could include LP tokens or staked tokens that represent a position.
 
-It is also important to include functions that handle all managment of the protocol. For example setting the LP range on a uniswap v3 pool.
+It is also important to include functions that handle all managment of the protocol. For example functions for managing Uniswap V3 pools.
 
 ### 3. Update the Strategy with Interactor Addresses
 
@@ -54,7 +54,7 @@ struct Purpose
 function utilizedERC20AndPurposeUpdate(address[] memory __utilizedERC20, Purpose[] memory _purpose);
 ```
 
-### 5. Enable Despotiing of ERC20
+### 5. Enable Depositing of ERC20
 
 Call the function to enable depositing of the funds
 
