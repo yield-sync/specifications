@@ -24,6 +24,8 @@ This part of the deployment proccess is the most abstract aspect of the protocol
 
 This contract should be responsible of interacting with the DeFi protocol itself as well as holding an token that is associated. That could include LP tokens or staked tokens that represent a position.
 
+It is also important to include functions that handle all managment of the protocol. For example setting the LP range on a uniswap v3 pool.
+
 ### 3. Update the Strategy with Interactor Addresses
 
 After deploying the contract that implements `IYieldSyncV1EMPStrategyInteractor`. it is time to define the address in the strategy contract.
