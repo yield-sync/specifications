@@ -16,17 +16,19 @@ This guide outlines the steps for deploying and configuring an EMP Strategy. The
 
 Utilize the `YieldSyncV1EMPStrategyDeployer` contract to deploy an instance of `YieldSyncV1EMPStrategy` using the `deployYieldSyncV1EMPStrategy()` function.
 
-This deployer will automatically register the address of the `YieldSyncV1EMPRegistry` contract. This is required so that authentication on the EMP level can occur.
+This deployer will automatically register the address of the of `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer can occur.
 
-### 2. Implement and Deploy Strategy Logic Contracts
+### 2. Implement and Deploy an `IYieldSyncV1EMPStrategyInteractor` Contract
 
-Implement a contract that contain the logic for interacting with DeFi protocols. This contracts should implement the `IYieldSyncV1EMPStrategyInteractor` interface.
+This part of the deployment proccess is the most abstract aspect of the protocol. The only thing required is to implement the `IYieldSyncV1EMPStrategyInteractor` interface.
 
-This part of the deployment proccess has more abstraction then the previous step.
+This contract should be responsible of interacting with the DeFi protocol itself as well as holding an token that is associated. That could include LP tokens or staked tokens that represent a position.
 
 ### 3. Update the Strategy with Interactor Addresses
 
-Call the iYieldSyncV1EMPStrategyInteractorUpdate function on your deployed YieldSyncV1EMPStrategy instance to set the addresses of your strategy logic contracts.
+After deploying the contract that implements `IYieldSyncV1EMPStrategyInteractor`. it is time to define the address in the strategy contract.
+
+Call the `iYieldSyncV1EMPStrategyInteractorUpdate` function on your deployed `YieldSyncV1EMPStrategy` instance contract to set the address of your strategy interactor contracts.
 
 ```solidity
 // In yieldSyncV1EMPStrategy call this function
@@ -34,6 +36,8 @@ function iYieldSyncV1EMPStrategyInteractorUpdate(address interactor);
 ```
 
 ### 4. Configure the Strategy
+
+Within `YieldSyncV1EMPStrategy` define the utilized ERC20 tokens, their purposes, and allocations.
 
 ```solidity
 // Context
@@ -43,20 +47,12 @@ struct Purpose
 	bool withdraw;
 	uint256 allocation;
 }
-````
 
-Configure your strategy by setting utilized ERC20 tokens, their purposes, and allocations. Ensure that deposits and withdrawals are toggled as per your strategy's readiness to manage user funds.
-
-```solidity
 // In yieldSyncV1EMPStrategy call this function
 function utilizedERC20AndPurposeUpdate(address[] memory __utilizedERC20, Purpose[] memory _purpose);
 ```
 
-### 5. Integration Testing
-
-Conduct thorough testing to ensure that all components of your strategy work together as expected. Test the deposit, yield generation, and withdrawal functionalities.
-
-### 6. Enable Despotiing of ERC20
+### 5. Enable Despotiing of ERC20
 
 Call the function to enable depositing of the funds
 
@@ -65,9 +61,19 @@ Call the function to enable depositing of the funds
 function utilizedERC20DepositOpenToggle();
 ```
 
-## Monitoring and Management
+## Testing, Monitoring, and Management
+
+### Testing
+
+Conduct thorough testing to ensure that all components of your strategy work together as expected. Test the deposit, yield generation, and withdrawal functionalities.
+
+### Monitoring
 
 Regularly monitor the strategy's performance and exposure. Be prepared to make adjustments as needed to respond to the evolving DeFi landscape.
+
+### Management
+
+If the strategy needs to be managed the functions to handle these management requirements should be programmed into the `IYieldSyncV1EMPStrategyInteractor` contract.
 
 ## Conclusion
 
