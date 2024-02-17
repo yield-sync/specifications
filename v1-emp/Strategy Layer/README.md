@@ -14,7 +14,15 @@ This guide outlines the steps for deploying and configuring an EMP Strategy. The
 
 ### 1. Deploy `YieldSyncV1EMPStrategy` Contract
 
-Utilize the `YieldSyncV1EMPStrategyDeployer` contract to deploy an instance of `YieldSyncV1EMPStrategy` using the `deployYieldSyncV1EMPStrategy()` function.
+Utilize the `YieldSyncV1EMPStrategyDeployer` contract to deploy an instance of `YieldSyncV1EMPStrategy` using the the following function:
+
+```sol
+function deployYieldSyncV1EMPStrategy(string memory _name, string memory _symbol)
+	external
+	payable
+	returns (address yieldSyncV1EMPStrategy_)
+;
+```
 
 This deployer will automatically register the address of the of `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer can occur.
 
@@ -37,11 +45,13 @@ Call the `iYieldSyncV1EMPStrategyInteractorUpdate` function on your deployed `Yi
 function iYieldSyncV1EMPStrategyInteractorUpdate(address interactor);
 ```
 
-### 4. Set `IYieldSyncV1EMPETHValueFeed` Contract
+### 4. Implement and Deploy an `IYieldSyncV1EMPETHValueFeed` Contract
 
 This is the An instance of `IYieldSyncV1EMPETHValueFeed` that should be programmed out to provide the price of utilized tokens denominated in ETH.
 
 It is required that this be programmed out otherwise the deposit and withdrawals cannot be switched on.
+
+An existing Eth Value Feed service can be utilized.
 
 ### 5. Configure the Strategy
 
@@ -94,6 +104,12 @@ Regularly monitor the strategy's performance and exposure. Be prepared to make a
 ### Management
 
 If the strategy needs to be managed the functions to handle these management requirements should be programmed into the `IYieldSyncV1EMPStrategyInteractor` contract.
+
+## Updating `IYieldSyncV1EMPStrategyInteractor` and/or `IYieldSyncV1EMPETHValueFeed`
+
+If you are required to update the `IYieldSyncV1EMPStrategyInteractor` contract and/or the `IYieldSyncV1EMPETHValueFeed` then you must stop all transfer of deposting and withdrawing ERC20 tokens.
+
+If you are going to do this, then make sure all assets are transferred out of the `IYieldSyncV1EMPStrategyInteractor`
 
 ## Conclusion
 
