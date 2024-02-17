@@ -37,24 +37,42 @@ Call the `iYieldSyncV1EMPStrategyInteractorUpdate` function on your deployed `Yi
 function iYieldSyncV1EMPStrategyInteractorUpdate(address interactor);
 ```
 
-### 4. Configure the Strategy
+### 4. Set `IYieldSyncV1EMPETHValueFeed` Contract
+
+This is the An instance of `IYieldSyncV1EMPETHValueFeed` that should be programmed out to provide the price of utilized tokens denominated in ETH.
+
+It is required that this be programmed out otherwise the deposit and withdrawals cannot be switched on.
+
+### 5. Configure the Strategy
+
+#### a. Set the Utilized Tokens Purpose
 
 Within `YieldSyncV1EMPStrategy` define the utilized ERC20 tokens, their purposes, and allocations.
 
 ```solidity
-// Context
+function utilizedERC20AndPurposeUpdate(address[] memory __utilizedERC20, Purpose[] memory _purpose);
+```
+
+For the above function this is the Purpose struct.
+
+```solidity
 struct Purpose
 {
 	bool deposit;
 	bool withdraw;
 	uint256 allocation;
 }
-
-// In yieldSyncV1EMPStrategy call this function
-function utilizedERC20AndPurposeUpdate(address[] memory __utilizedERC20, Purpose[] memory _purpose);
 ```
 
-### 5. Enable Depositing of ERC20
+#### b. Set the Utilized Tokens Price Feed Service Contract
+
+Within `YieldSyncV1EMPStrategy` define the price feed service contract.
+
+```solidity
+function iYieldSyncV1EMPETHValueFeedUpdate(address _iYieldSyncV1EMPETHValueFeed)
+```
+
+### 6. Enable Depositing of ERC20
 
 Call the function to enable depositing of the funds
 
