@@ -6,7 +6,7 @@ This guide outlines the steps for deploying and configuring an EMP Strategy. The
 
 ## Prerequisites
 
-- Solidity ^0.8.18
+- Solidity ^0.8.19
 - Hardhat or Truffle for deployment
 - Access to an Ethereum network provider (Mainnet, Rinkeby, etc.)
 
@@ -24,47 +24,50 @@ function deployYieldSyncV1EMPStrategy(string memory _name, string memory _symbol
 ;
 ```
 
-This deployer will automatically register the address of the of `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer.
+This deployer will automatically register the address of the `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer when this strategy is attached to it.
 
 ### 2. Implement and Deploy an `IYieldSyncV1EMPStrategyInteractor` Contract
 
-The objective of this contract should be to be able to interact with the desired DeFi protocol of choice.
+*This part of the deployment proccess is the most abstract aspect of the protocol*
 
-This part of the deployment proccess is the most abstract aspect of the protocol. Being that the contract is only required to implement the interface, it allows the developer to chose what other functions can be programmed out.
-
-It is also important to include functions that handle all managment of the protocol. For example functions for managing Uniswap V3 pools.
+The developer is required to program out a contract that interfaces and communicates with the underlying DeFi protocol. Being that the contract is only required to implement the interface, it allows the developer to be able to add as many functions as they like.
 
 #### Requirements
 
 1. Should implement the `IYieldSyncV1EMPStrategyInteractor` interface
 2. Should hold any and all tokens related to the DeFi protocol (Ex. LP Tokens)
+3. Should have all functions that handle the managment of the protocol (Ex. Uniswap V3 pools range setting)
 
 #### Recommendations
 
-1. it is a good idea to include functions that allow tarnsferring out ERC20 from the smart contract in case of an emergency, adaptation of a new contract, or any other reason to withdraw ERC20
+1. It is a good idea to include functions that allow the tarnsferring of all ERC20 tokens from the smart contract in case of an emergency, migration to a new contract, etc.
 2. Make sure that the contract only allows the authorized callers to call the functions. This should include:
 	a. EMPStrategy
 	b. Manager of the strategy (can be referrenced from EMPStrategy or programmed out)
+
+#### Note
+
+It is important to consider that the more complicated the contract, the less trust users may have. 
 
 ### 3. Implement and Deploy an `IYieldSyncV1EMPETHValueFeed` Contract
 
 This is an instance of `IYieldSyncV1EMPETHValueFeed` that should be programmed out to provide the price of utilized tokens denominated in ETH.
 
-This is required to be programmed out and referenced so that deposit and withdrawals cannot be switched on.
+This is required to be programmed out so that deposit and withdrawals cannot be switched on and work correctly.
 
 #### Considerations
 
-If the devleoper is not interested in programming this contract from scratch an existing ETH Value Feed service can be utilized. It is up to the developer to find one.
+If the developer is not interested in programming this contract from scratch an existing ETH Value Feed service can be utilized. It is up to the developer to find one.
 
 ### 4. Configure the Strategy
 
-These can be done in any order.
+The following steps can be done in any order..
 
 #### a. Set the Utilized Tokens Purpose
 
 Within `YieldSyncV1EMPStrategy` define the utilized ERC20 tokens, their purposes, and allocations.
 
-ONE_HUNDRED_PERCENT is 1e18. so allocation must not exceed that amount.
+ONE_HUNDRED_PERCENT is 1e18.
 
 ```solidity
 function utilizedERC20AndPurposeUpdate(address[] memory __utilizedERC20, Purpose[] memory _purpose);
@@ -110,7 +113,16 @@ Call the function to enable depositing of the funds
 
 ```solidity
 // In yieldSyncV1EMPStrategy call this function
-function utilizedERC20DepositOpenToggle();
+function utilizedERC20DepositOpenToggle() external;
+```
+
+### 6. Enable Withdrawing of ERC20
+
+Call the function to enable depositing of the funds
+
+```solidity
+// In yieldSyncV1EMPStrategy call this function
+function utilizedERC20WithdrawOpenToggle() external;
 ```
 
 ## Testing, Monitoring, and Management
