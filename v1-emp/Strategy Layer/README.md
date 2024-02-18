@@ -24,40 +24,47 @@ function deployYieldSyncV1EMPStrategy(string memory _name, string memory _symbol
 ;
 ```
 
-This deployer will automatically register the address of the of `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer can occur.
+This deployer will automatically register the address of the of `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer.
 
 ### 2. Implement and Deploy an `IYieldSyncV1EMPStrategyInteractor` Contract
 
-This part of the deployment proccess is the most abstract aspect of the protocol. The only thing required is to implement the `IYieldSyncV1EMPStrategyInteractor` interface.
+The objective of this contract should be to be able to interact with the desired DeFi protocol of choice.
 
-This contract should be responsible of interacting with the DeFi protocol itself as well as holding an token that is associated. That could include LP tokens or staked tokens that represent a position.
+This part of the deployment proccess is the most abstract aspect of the protocol. Being that the contract is only required to implement the interface, it allows the developer to chose what other functions can be programmed out.
 
 It is also important to include functions that handle all managment of the protocol. For example functions for managing Uniswap V3 pools.
 
-### 3. Update the Strategy with Interactor Addresses
+#### Requirements
 
-After deploying the contract that implements `IYieldSyncV1EMPStrategyInteractor`. it is time to define the address in the strategy contract.
+1. Should implement the `IYieldSyncV1EMPStrategyInteractor` interface
+2. Should hold any and all tokens related to the DeFi protocol (Ex. LP Tokens)
 
-Call the `iYieldSyncV1EMPStrategyInteractorUpdate` function on your deployed `YieldSyncV1EMPStrategy` instance contract to set the address of your strategy interactor contracts.
+#### Recommendations
 
-```solidity
-// In yieldSyncV1EMPStrategy call this function
-function iYieldSyncV1EMPStrategyInteractorUpdate(address interactor);
-```
+1. it is a good idea to include functions that allow tarnsferring out ERC20 from the smart contract in case of an emergency, adaptation of a new contract, or any other reason to withdraw ERC20
+2. Make sure that the contract only allows the authorized callers to call the functions. This should include:
+	a. EMPStrategy
+	b. Manager of the strategy (can be referrenced from EMPStrategy or programmed out)
 
-### 4. Implement and Deploy an `IYieldSyncV1EMPETHValueFeed` Contract
+### 3. Implement and Deploy an `IYieldSyncV1EMPETHValueFeed` Contract
 
-This is the An instance of `IYieldSyncV1EMPETHValueFeed` that should be programmed out to provide the price of utilized tokens denominated in ETH.
+This is an instance of `IYieldSyncV1EMPETHValueFeed` that should be programmed out to provide the price of utilized tokens denominated in ETH.
 
-It is required that this be programmed out otherwise the deposit and withdrawals cannot be switched on.
+This is required to be programmed out and referenced so that deposit and withdrawals cannot be switched on.
 
-An existing Eth Value Feed service can be utilized.
+#### Considerations
 
-### 5. Configure the Strategy
+If the devleoper is not interested in programming this contract from scratch an existing ETH Value Feed service can be utilized. It is up to the developer to find one.
+
+### 4. Configure the Strategy
+
+These can be done in any order.
 
 #### a. Set the Utilized Tokens Purpose
 
 Within `YieldSyncV1EMPStrategy` define the utilized ERC20 tokens, their purposes, and allocations.
+
+ONE_HUNDRED_PERCENT is 1e18. so allocation must not exceed that amount.
 
 ```solidity
 function utilizedERC20AndPurposeUpdate(address[] memory __utilizedERC20, Purpose[] memory _purpose);
@@ -74,15 +81,30 @@ struct Purpose
 }
 ```
 
+##### Notes
+
+The sum of all the allocations in the `Purpose[]` must add up to ONE_HUNDRED_PERCENT. Anything more or less will be invalid and cause the function to revert.
+
 #### b. Set the Utilized Tokens Price Feed Service Contract
 
 Within `YieldSyncV1EMPStrategy` define the price feed service contract.
 
 ```solidity
-function iYieldSyncV1EMPETHValueFeedUpdate(address _iYieldSyncV1EMPETHValueFeed)
+function iYieldSyncV1EMPETHValueFeedUpdate(address _iYieldSyncV1EMPETHValueFeed) external;
 ```
 
-### 6. Enable Depositing of ERC20
+#### c. Set the Strategy Interactor Contract
+
+After deploying the contract that implements `IYieldSyncV1EMPStrategyInteractor` the devloper must define the address in the strategy contract.
+
+Call the `iYieldSyncV1EMPStrategyInteractorUpdate()` function on your deployed `YieldSyncV1EMPStrategy` instance contract to set the address of your strategy interactor contracts.
+
+```solidity
+// In yieldSyncV1EMPStrategy call this function
+function iYieldSyncV1EMPStrategyInteractorUpdate(address interactor) external;
+```
+
+### 5. Enable Depositing of ERC20
 
 Call the function to enable depositing of the funds
 
