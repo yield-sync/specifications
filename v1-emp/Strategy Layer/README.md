@@ -22,13 +22,15 @@ function deployYieldSyncV1EMPStrategy(string memory _name, string memory _symbol
 
 This deployer will automatically register the address of the `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer when this strategy is attached to it.
 
-### 2. Set the utilized ERC 20 tokens by using the following function:
+### 2. Set the utilized ERC 20 Tokens
+
+Utilize the following function on the `YieldSyncV1EMPStrategy`
 
 ```solidity
 function utilizedERC20Update(address[] memory __utilizedERC20, Utilization[] memory _utilization) external;
 ```
 
-### 3. Set the Utilized Tokens Price Feed Service Contract
+### 3. Set the Price Feed Contract
 
 Within `YieldSyncV1EMPStrategy` define the price feed service contract.
 
