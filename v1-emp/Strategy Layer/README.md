@@ -108,7 +108,7 @@ If the strategy needs to be managed the functions to handle these management req
 
 If you are required to update the `IYieldSyncV1EMPStrategyInteractor` contract and/or the `IYieldSyncV1EMPETHValueFeed` then you must stop all transfer of deposting and withdrawing ERC20 tokens.
 
-If you are going to do this, then make sure all assets are transferred out of the `IYieldSyncV1EMPStrategyInteractor`
+<b style="color: red;">If you are going to do this, then make sure all assets are transferred out of the `IYieldSyncV1EMPStrategyInteractor`</b>
 
 ## Conclusion
 
