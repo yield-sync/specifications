@@ -17,11 +17,7 @@ This guide outlines the steps for deploying and configuring an EMP Strategy. The
 Utilize the `YieldSyncV1EMPStrategyDeployer` contract to deploy an instance of `YieldSyncV1EMPStrategy` using the following function:
 
 ```solidity
-function deployYieldSyncV1EMPStrategy(string memory _name, string memory _symbol)
-	external
-	payable
-	returns (address yieldSyncV1EMPStrategy_)
-;
+function deployYieldSyncV1EMPStrategy(string memory _name, string memory _symbol) external payable returns (address yieldSyncV1EMPStrategy_);
 ```
 
 This deployer will automatically register the address of the `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer when this strategy is attached to it.
@@ -29,9 +25,15 @@ This deployer will automatically register the address of the `YieldSyncV1EMPStra
 ### 2. Set the utilized ERC 20 tokens by using the following function:
 
 ```solidity
-function utilizedERC20Update(address[] memory __utilizedERC20, Utilization[] memory _utilization)
-	external
-;
+function utilizedERC20Update(address[] memory __utilizedERC20, Utilization[] memory _utilization) external;
+```
+
+### 3. Set the Utilized Tokens Price Feed Service Contract
+
+Within `YieldSyncV1EMPStrategy` define the price feed service contract.
+
+```solidity
+function iYieldSyncV1EMPETHValueFeedUpdate(address _iYieldSyncV1EMPETHValueFeed) external;
 ```
 
 ### 3. Implement and Deploy an `IYieldSyncV1EMPStrategyInteractor` Contract
@@ -55,56 +57,9 @@ The developer is required to program out a contract that interfaces and communic
 
 #### Note
 
-It is important to consider that the more complicated the contract, the less trust users may have. 
+It is important to consider that the more complicated the contract, the less trust users may have.
 
-### 3. Implement and Deploy an `IYieldSyncV1EMPETHValueFeed` Contract
-
-This is an instance of `IYieldSyncV1EMPETHValueFeed` that should be programmed out to provide the price of utilized tokens denominated in ETH.
-
-This is required to be programmed out so that deposit and withdrawals cannot be switched on and work correctly.
-
-#### Considerations
-
-If the developer is not interested in programming this contract from scratch an existing ETH Value Feed service can be utilized. It is up to the developer to find one.
-
-### 5. Configure the Strategy
-
-The following steps can be done in any order..
-
-#### a. Set the Utilized Tokens Purpose
-
-Within `YieldSyncV1EMPStrategy` define the utilized ERC20 tokens, their purposes, and allocations.
-
-ONE_HUNDRED_PERCENT is 1e18.
-
-```solidity
-function utilizedERC20AndPurposeUpdate(address[] memory __utilizedERC20, Purpose[] memory _purpose);
-```
-
-For the above function this is the Purpose struct.
-
-```solidity
-struct Purpose
-{
-	bool deposit;
-	bool withdraw;
-	uint256 allocation;
-}
-```
-
-##### Notes
-
-The sum of all the allocations in the `Purpose[]` must add up to ONE_HUNDRED_PERCENT. Anything more or less will be invalid and cause the function to revert.
-
-#### b. Set the Utilized Tokens Price Feed Service Contract
-
-Within `YieldSyncV1EMPStrategy` define the price feed service contract.
-
-```solidity
-function iYieldSyncV1EMPETHValueFeedUpdate(address _iYieldSyncV1EMPETHValueFeed) external;
-```
-
-#### c. Set the Strategy Interactor Contract
+### 4. Set the Strategy Interactor Contract
 
 After deploying the contract that implements `IYieldSyncV1EMPStrategyInteractor` the devloper must define the address in the strategy contract.
 
@@ -115,7 +70,7 @@ Call the `iYieldSyncV1EMPStrategyInteractorUpdate()` function on your deployed `
 function iYieldSyncV1EMPStrategyInteractorUpdate(address interactor) external;
 ```
 
-### 6. Enable Depositing of ERC20
+### 5. Enable Depositing of ERC20
 
 Call the function to enable depositing of the funds
 
@@ -124,7 +79,7 @@ Call the function to enable depositing of the funds
 function utilizedERC20DepositOpenToggle() external;
 ```
 
-### 7. Enable Withdrawing of ERC20
+### 6. Enable Withdrawing of ERC20
 
 Call the function to enable depositing of the funds
 
