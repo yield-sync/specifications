@@ -15,10 +15,10 @@
 
 #### Ordering
 
-1. Mutability -> `constant` | `immutable` | `*`
-2. Visibility -> `public` | `private` | `internal` | `external`
-3. Type -> (Alphabetical) `address` | `bytes` | `uint256`
-4. Non-Array than Array
+1. Type -> (Alphabetical) `address` | `bytes` | `uint256` | `mapping`
+2. Non-Array than Array
+3. Visibility -> `public` | `private` | `internal` | `external`
+4. Mutability -> `constant` | `immutable` | `*`
 5. Alphabetical
 
 ### Getters
@@ -34,11 +34,12 @@
 
 #### Ordering
 
-1. Mutability -> `constant` | `immutable` | `*`
-2. Visibility -> `public` | `private` | `internal` | `external`
-3. Type -> (Alphabetical) `address` | `bytes` | `Struct`
-4. mapping with only primitive types comes first
-5. Non-Array than Array
+1. Type -> (Alphabetical) `address` | `bytes` | `Struct`
+2. Non-Array than Array
+3. Visibility -> `public` | `private` | `internal` | `external`
+4. Mutability -> `constant` | `immutable` | `*`
+5. mapping with only primitive types comes first
+
 6. Alphabetical
 
 #### Mapping Getters
