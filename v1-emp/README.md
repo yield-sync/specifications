@@ -1,4 +1,3 @@
-# Strategy Deployment Process
+# v1-emp
 
-1. Strategy Controller must be deployed first
-	1. It must be noted that upon deployed the strategy is NOT set. Not until the `setStrategy()` function is called, does the strategy fully be begin.
+This is general documentation for `v1-emp` which gives details for developers to develop and integrate strategies within the protocol.
