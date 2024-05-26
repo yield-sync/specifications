@@ -14,9 +14,9 @@ This guide outlines the steps for deploying and configuring an EMP Strategy. The
 
 ### 1. Deploy `YieldSyncV1EMPStrategy` Contract
 
-Utilize the `YieldSyncV1EMPStrategyDeployer` contract to deploy an instance of `YieldSyncV1EMPStrategy` using the the following function:
+Utilize the `YieldSyncV1EMPStrategyDeployer` contract to deploy an instance of `YieldSyncV1EMPStrategy` using the following function:
 
-```sol
+```solidity
 function deployYieldSyncV1EMPStrategy(string memory _name, string memory _symbol)
 	external
 	payable
@@ -26,7 +26,15 @@ function deployYieldSyncV1EMPStrategy(string memory _name, string memory _symbol
 
 This deployer will automatically register the address of the `YieldSyncV1EMPStrategy` on the `YieldSyncV1EMPRegistry` contract. This is required so that authentication can occur on the EMP Layer when this strategy is attached to it.
 
-### 2. Implement and Deploy an `IYieldSyncV1EMPStrategyInteractor` Contract
+### 2. Set the utilized ERC 20 tokens by using the following function:
+
+```solidity
+function utilizedERC20Update(address[] memory __utilizedERC20, Utilization[] memory _utilization)
+	external
+;
+```
+
+### 3. Implement and Deploy an `IYieldSyncV1EMPStrategyInteractor` Contract
 
 *This part of the deployment proccess is the most abstract aspect of the protocol*
 
@@ -59,7 +67,7 @@ This is required to be programmed out so that deposit and withdrawals cannot be 
 
 If the developer is not interested in programming this contract from scratch an existing ETH Value Feed service can be utilized. It is up to the developer to find one.
 
-### 4. Configure the Strategy
+### 5. Configure the Strategy
 
 The following steps can be done in any order..
 
@@ -107,7 +115,7 @@ Call the `iYieldSyncV1EMPStrategyInteractorUpdate()` function on your deployed `
 function iYieldSyncV1EMPStrategyInteractorUpdate(address interactor) external;
 ```
 
-### 5. Enable Depositing of ERC20
+### 6. Enable Depositing of ERC20
 
 Call the function to enable depositing of the funds
 
@@ -116,7 +124,7 @@ Call the function to enable depositing of the funds
 function utilizedERC20DepositOpenToggle() external;
 ```
 
-### 6. Enable Withdrawing of ERC20
+### 7. Enable Withdrawing of ERC20
 
 Call the function to enable depositing of the funds
 
