@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.3">
   <diagram name="Page-1" id="pazCaoZUeLf8iRMA3fpz">
-    <mxGraphModel dx="797" dy="433" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="989" dy="538" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -330,7 +330,7 @@
         </mxCell>
         <mxCell id="dY4Isz8nKz-BvBwB_T4C-45" value="mint EMP ERC20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dY4Isz8nKz-BvBwB_T4C-44">
           <mxGeometry x="0.1748" y="1" relative="1" as="geometry">
-            <mxPoint x="-20" y="1" as="offset" />
+            <mxPoint x="15" y="1" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="dY4Isz8nKz-BvBwB_T4C-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=classic;startFill=1;dashed=1;dashPattern=1 2;" edge="1" parent="1">
@@ -341,7 +341,7 @@
         </mxCell>
         <mxCell id="dY4Isz8nKz-BvBwB_T4C-47" value="mint EMP ERC20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dY4Isz8nKz-BvBwB_T4C-46">
           <mxGeometry x="0.1748" y="1" relative="1" as="geometry">
-            <mxPoint x="-20" y="1" as="offset" />
+            <mxPoint x="49" y="1" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
